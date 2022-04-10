@@ -1,6 +1,6 @@
 export const addInfo = async(info) =>{
     const sendRequest = async()=>{
-        const response = await fetch('https://scs-project-d07b8-default-rtdb.firebaseio.com/user.json',{
+        const response = await fetch('https://scsproject-14fe9-default-rtdb.firebaseio.com/user.json',{
             method:"POST",
             body:JSON.stringify({
                 name:info.name,

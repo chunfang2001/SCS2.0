@@ -1,10 +1,12 @@
 import { addInfo } from "../lib/addInfo"
 import { authSliceAction } from "./authslice"
 
+const {React_App_Firebase_API} = process.env
+
 export const login =  (email,password) =>{
     return async (dispatch) =>{
         const sendRequest = async ()=> {
-            const response = await fetch("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBrWQ2WDnRlGvDIoOAjgOEHkjewtH8OIIM",{
+            const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${React_App_Firebase_API}`,{
                 method:'POST',
                 body:JSON.stringify({
                     email:email,
@@ -36,7 +38,7 @@ export const login =  (email,password) =>{
 export const register = (name,email,password)=>{
     return async (dispatch)=>{
         const sendRequest = async()=>{
-            const response = await fetch("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBrWQ2WDnRlGvDIoOAjgOEHkjewtH8OIIM",{
+            const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${React_App_Firebase_API}`,{
                 method:"POST",
                 body:JSON.stringify({
                     email:email,
@@ -47,9 +49,11 @@ export const register = (name,email,password)=>{
                     "Content-Type": "application/json"
                 } 
             })
+            console.log(response)
             if(!response.ok){
                 throw new Error("Registration fail")
             }else{
+                console.log("A")
                 const data = await response.json()
                 const addUser = async (info)=>{
                     await addInfo(info)
@@ -74,7 +78,7 @@ export const register = (name,email,password)=>{
 export const changePassword = (token,password)=>{
     return async(dispatch)=>{
         const sendRequest=async ()=>{
-            const response = await fetch("https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyBrWQ2WDnRlGvDIoOAjgOEHkjewtH8OIIM",{
+            const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${React_App_Firebase_API}`,{
                 method:"POST",
                 body:JSON.stringify({
                     idToken:token,

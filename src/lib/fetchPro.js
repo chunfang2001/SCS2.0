@@ -1,6 +1,6 @@
 export const fetchPro = async ()=>{
     const sendRequest = async ()=>{
-        const response = await fetch("https://scs-project-d07b8-default-rtdb.firebaseio.com/product.json")
+        const response = await fetch("https://scsproject-14fe9-default-rtdb.firebaseio.com/product.json")
         if(!response.ok){
             throw new Error("failed to connect with database")
         }

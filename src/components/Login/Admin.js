@@ -25,10 +25,6 @@ const AdminForm = ()=>{
 
     const adminLoginHandler = (event)=>{
         event.preventDefault()
-        dispatch(authSliceAction.setToken({
-            token:"admin"
-        }))
-        dispatch(authSliceAction.setAdmin())
         if(emailForm.current.value ==='chunfang' && passwordForm.current.value==='123456'){
             dispatch(authSliceAction.setToken({
                 token:"admin"

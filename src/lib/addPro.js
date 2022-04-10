@@ -1,6 +1,6 @@
 export const addPro = async (product)=>{
     const sendRequest = async ()=>{
-        const response = await fetch("https://scs-project-d07b8-default-rtdb.firebaseio.com/product.json",{
+        const response = await fetch("https://scsproject-14fe9-default-rtdb.firebaseio.com/product.json",{
             method:"POST",
             body:JSON.stringify(product),
             headers:{

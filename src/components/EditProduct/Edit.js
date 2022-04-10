@@ -39,7 +39,7 @@ const Edit = ()=>{
     const changeHandler = async(event)=>{
         event.preventDefault()
         const sendRequest = async() =>{
-            const response = await fetch(`https://scs-project-d07b8-default-rtdb.firebaseio.com/product/${param.productId}.json`,{
+            const response = await fetch(`https://scsproject-14fe9-default-rtdb.firebaseio.com/product/${param.productId}.json`,{
                 method:'PUT',
                 body:JSON.stringify({
                     code:codeForm.current.value,
